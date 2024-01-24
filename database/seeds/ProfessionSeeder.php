@@ -1,8 +1,8 @@
 <?php
 
 use App\Profession;
+use App\Skill;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ProfessionSeeder extends Seeder
 {
@@ -23,6 +23,9 @@ class ProfessionSeeder extends Seeder
             'title' => 'Diseñador web'
         ]);
 
-        factory(Profession::class, 17)->create();
+        factory(Profession::class, 97)->create()->each(function ($profession) {
+            $skills = Skill::inRandomOrder()->take(rand(0, 3))->pluck('id')->toArray();
+            $profession->skills()->attach($skills);
+        });
     }
 }
