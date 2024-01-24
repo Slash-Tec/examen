@@ -23,7 +23,16 @@
             <tr>
                 <td scope="row">{{ $profession->id }}</td>
                 <td>{{ $profession->title }}</td>
-                <td>{{ $profession->profiles_count }}</td>
+                <td>{{ $profession->education_level }}</td>
+                <td>{{ $profession->salary }}</td>
+                <td>
+                    @foreach($profession->skills as $skill)
+                        {{ $skill->name }}
+                        @if (!$loop->last)
+                            ,
+                        @endif
+                    @endforeach
+                </td>
                 <td>
                     @if($profession->profiles_count == 0)
                         <form action="{{ url('profesiones/' . $profession->id) }}" method="POST">
@@ -37,6 +46,9 @@
                 </td>
             </tr>
         @endforeach
+
+
+        {{ $professions->links() }}
         </tbody>
     </table>
 @endsection
