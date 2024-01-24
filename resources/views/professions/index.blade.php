@@ -12,7 +12,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Título</th>
-            <th scope="col">Perfiles</th>
+            <th scope="col">Nivel de educación</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Experiencia Requerida</th>
             <th scope="col">Acciones</th>
         </tr>
         </thead>
