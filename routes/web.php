@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\ProfessionController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -46,3 +48,4 @@ Route::get('habilidades', 'SkillController@index')
     ->name('skill.index');
 
 Route::delete('profesiones/{profession}', 'ProfessionController@destroy');
+Route::get('/professions', [ProfessionController::class, 'index']);
